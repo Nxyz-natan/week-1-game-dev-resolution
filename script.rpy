@@ -14,9 +14,7 @@ image bg gym       = "bg_gym.jpg"
 image riley = "riley.png"
 image jun   = "jun.png"
 
-transform riley_pos:
-    xalign 0.75
-    yalign 1.0
+
 
 show riley at riley_pos
 
@@ -77,7 +75,7 @@ label start:
 
     narr "The bell goes. Everyone starts packing up."
 
-    riley "Hey  are you going to the end-of-year thing on Friday?"
+    riley "Hey  are you going to the end of year thing on Friday?"
     mc "The gym party thing?"
     riley "Yeah. Jun's organising it. It's going to be either really fun or a disaster."
     hide riley
@@ -556,7 +554,7 @@ label day5_setup:
     narr "It's loud and warm and a little chaotic."
     hide riley
     with dissolve
-    show jun at left
+    show jun at center
     with dissolve
 
     jun "Okay, it looks good right? Tell me it looks good."
@@ -590,3 +588,242 @@ label day5_setup:
         "Something feels off  slip away to the rooftop.":
             jump friday_rooftop
 
+label friday_together:
+
+    narr "You don't really leave each other's side."
+    narr "It's not a decision. It just happens."
+    narr "You dance badly on purpose."
+    narr "You steal food from the good table before Jun catches you."
+    narr "You find a quiet corner when the music gets too loud and just talk."
+
+    riley "I keep thinking about next year."
+    mc "Good thoughts or bad?"
+    riley "Both. Mostly good."
+    riley "There are things I'm going to miss."
+
+    narr "They look at you."
+
+    mc "You don't have to miss all of them."
+    riley "Yeah?"
+
+    menu:
+        "Say the thing."
+
+        "Say it properly tell them how you feel.":
+            jump ending_good
+
+        "Just ask for their number.":
+            mc "Give me your number. So we don't have to miss each other."
+            riley "That might be the smoothest thing you've ever said."
+            mc "Don't tell anyone. It'll ruin my reputation."
+            jump ending_good
+
+label friday_group:
+
+    narr "The night moves in groups."
+    narr "Jun's games. Someone's speech. A lot of photos."
+    narr "But you keep finding Riley."
+    narr "Across the room. In the same queue. At the same table."
+    narr "Like gravity."
+    narr "Near the end of the night, the crowd thins out."
+    narr "You end up sitting on the floor by the speaker with Riley."
+    narr "It's too loud to hear properly."
+    narr "You lean in to talk."
+    narr "They lean in to listen."
+
+    riley "I'm glad you came."
+    mc "Me too."
+
+    narr "It's simple."
+    narr "But Riley's smiling like you said something much better."
+
+    menu:
+        "End of the night."
+
+        "Walk them home.":
+            mc "Can I walk you home?"
+            riley "Yeah. Yeah, I'd really like that."
+            jump ending_good
+
+        "Exchange numbers and say goodnight.":
+            jump ending_neutral
+
+label friday_rooftop:
+
+    hide riley
+    with dissolve
+
+    scene bg rooftop
+    with fade
+
+    narr "You slip out through the fire exit."
+    narr "Up the stairs. Through the door that's always unlocked if you know where to push."
+    narr "The rooftop."
+    narr "The city stretches out below."
+    narr "You can faintly hear the music from the gym."
+    narr "You sit on the low wall and look out."
+    narr "Ten minutes later, you hear the door."
+
+    show riley at center
+    with dissolve
+
+    riley "I saw you leave."
+    mc "Sorry."
+    riley "Don't be. I followed you."
+
+    narr "They sit beside you."
+    narr "Close enough that your shoulders touch."
+
+    riley "It's nice up here."
+    mc "Yeah."
+    riley "I didn't know you were a rooftop person."
+    mc "I didn't know either until now."
+    narr "The music drifts up faintly."
+    narr "The sky is clear."
+
+    riley "Hey."
+    mc "Hey."
+    riley "What's going on in your head?"
+
+    menu:
+        "Tell them."
+
+        "Tell them everything.":
+            mc "I've been trying to figure out how to talk to you all year."
+            mc "And now it's the last day and I still don't really know how."
+            mc "But I think I really like you. And I didn't want to not say it."
+            narr "Riley doesn't say anything for a moment."
+            narr "Then they lean their head on your shoulder."
+            riley "You could have just said that in September."
+            mc "I know."
+            riley "I would have said it back."
+            jump ending_secret
+
+        "Say you don't know. Let them talk.":
+            mc "I don't know. What about you?"
+            riley "I think... I'm sad it's ending."
+            riley "But I think some of it doesn't have to end."
+            narr "They look at you."
+            narr "You know what they mean."
+            jump ending_secret
+
+label ending_good:
+
+    hide riley
+    with dissolve
+
+    scene bg park
+    with fade
+
+    show riley at center
+    with dissolve
+
+    narr "~ GOOD ENDING: Finally ~"
+    narr " "
+    narr "You walk home the long way."
+    narr "Past the park. Along the canal. Nowhere in particular."
+    narr "Your hands find each other somewhere near the old bookshop."
+    narr "Neither of you says anything about it."
+    narr "You don't need to."
+    narr "Jun texts you both at 11 PM."
+    narr "'I SAW THAT. YOU'RE WELCOME. IT WAS THE LIGHTS.'"
+    narr "Riley shows you the text and laughs."
+    narr "You walk the rest of the way laughing."
+    narr "Summer starts."
+    narr "But this doesn't end."
+    narr " "
+    narr "Sometimes you just have to say the thing."
+    narr "Even if it takes you nine months to get there."
+
+    return
+
+label ending_bad:
+
+    hide riley
+    with dissolve
+
+    scene bg hallway
+    with fade
+
+    show riley at center
+    with dissolve
+
+    narr "~ BAD ENDING: Too Late ~"
+    narr " "
+    narr "Friday comes and goes."
+    narr "The party is fun. You and Riley talk."
+    narr "But the moment passes."
+    narr "As moments do when you wait too long."
+    narr "Summer arrives."
+    narr "Riley posts photos of somewhere abroad."
+    narr "You like them."
+    narr "You don't comment."
+    narr "In September, you'll both be somewhere new."
+    narr "Different cities, probably."
+    narr "You'll think about the hallway."
+    narr "About what you didn't say."
+    narr " "
+    narr "There's always next time."
+    narr "Except when there isn't."
+
+    return
+
+label ending_neutral:
+
+    hide riley
+    with dissolve
+
+    scene bg cafeteria
+    with fade
+
+    show riley at center
+    with dissolve
+
+    narr "~ NEUTRAL ENDING: A Start ~"
+    narr " "
+    narr "You exchange numbers."
+    narr "It's a small thing."
+    narr "But small things matter."
+    narr "Over the summer, you text."
+    narr "About nothing much. Memes. Music. What you're reading."
+    narr "Riley sends you photos of their sketchbook."
+    narr "You tell them they're good every time."
+    narr "They say 'shut up' every time."
+    narr "They keep sending them."
+    narr "In September, before you both leave for your respective new lives,"
+    narr "you meet for coffee."
+    narr "It goes for three hours."
+    narr "Some things are slow."
+    narr "That doesn't make them less real."
+    narr " "
+    narr "This is the beginning of something."
+    narr "You're just not sure what yet."
+
+    return
+
+label ending_secret:
+
+    scene bg rooftop
+    with fade
+
+    show riley at center
+    with dissolve
+
+    narr "~ SECRET ENDING: The Rooftop ~"
+    narr " "
+    narr "You stay on the rooftop long after the party ends."
+    narr "You can hear Jun locking up below."
+    narr "You can hear the city."
+    narr "Riley sketches you in the low light."
+    narr "They warn you it won't be good."
+    narr "It is good."
+    narr "You walk home at midnight."
+    narr "The long way."
+    narr "Of course."
+    narr "Neither of you planned this."
+    narr "That's what makes it matter."
+    narr " "
+    narr "The best things happen when you almost walk away"
+    narr "but don't."
+
+    return
